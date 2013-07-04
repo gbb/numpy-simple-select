@@ -17,6 +17,7 @@ Pros:
 - Handles large condlist/choicelist inputs.
 - 2-3x faster typically on scalar classification (e.g. select([...],[2,5,13,20]).
 - Better internal documentation.
+- Better detection/reporting of bad input.
 - Test harness included.
 - Similar speed to np.select for ndarray classification with all elements the same shape.
 
