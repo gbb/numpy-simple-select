@@ -1,4 +1,4 @@
-
+<PRE> 
 Benchmarks/test output for simplesel.select
 
 Numpy version:1.7.1
@@ -244,4 +244,4 @@ ss.select time is:
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
-
+<PRE>
