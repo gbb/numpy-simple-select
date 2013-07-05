@@ -1,7 +1,7 @@
 numpy-simple-select
 ===================
 
-This is a drop-in replacement for the 'select' function in numpy. It has been reimplemented to fix long-standing bugs, improve speed in a common use case and improve internal documentation. 
+This is a drop-in replacement for the 'select' function in numpy. It has been reimplemented to fix long-standing bugs, improve speed in a common use case and improve internal documentation. It does not support advanced broadcasting, but many people may not require that for their own use of select(). 
 
 It is a follow-up to my posts in the numpy repository:
 
