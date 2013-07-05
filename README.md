@@ -1,7 +1,7 @@
 numpy-simple-select
 ===================
 
-This is a complete reimplementation of the 'select' function in numpy to fix long-standing bugs, improve speed in a common use case and improve internal documentation. 
+This is a drop-in replacement for the 'select' function in numpy. It has been reimplemented to fix long-standing bugs, improve speed in a common use case and improve internal documentation. 
 
 It is a follow-up to my posts in the numpy repository:
 
@@ -24,7 +24,7 @@ Pros:
 Cons:
 
 - Slower speed with mixed ndarray/scalar condlists. Not sure this is a problem (why would you use True instead of default? why would you use False?). 
-- I don't think it will support broadcasting, but I don't have a realistic test case to try out. Does anyone care?
+- I don't think it will support broadcasting, but I don't have a suitable real-world test case to try out.
 
 
 Numpy devs: you are very welcome to include all or part of this code into numpy.
@@ -47,7 +47,7 @@ Thank you to the Norwegian Forest and Landscape Institute for allowing me to tid
 LICENSE
 =======
 
-Published under the MIT license with permission. Copyright (C) 2013 Norwegian Forest and Landscape Institute (contact: Graeme B Bell).
+Published under the MIT license with permission. Copyright (C) 2013 Norwegian Forest and Landscape Institute (contact: Graeme B Bell), except the function definition re-used from numpy.select. 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
