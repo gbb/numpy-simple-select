@@ -14,7 +14,7 @@ I have also included a test harness which demonstrates the faults and allows a p
 Pros:
 
 - Fixes the bugs highlighted in 3259/3254 by removing the .choose() dependency.
-- Handles large condlist/choicelist inputs.
+- Handles large condlist/choicelist inputs (e.g.  2^22 conditions in around 50 seconds).
 - 2-3x faster typically on scalar classification (e.g. select([...],[2,5,13,20]).
 - Better internal documentation.
 - Better detection/reporting of bad input.
