@@ -1,4 +1,5 @@
-<PRE> 
+
+<PRE>
 Benchmarks/test output for simplesel.select
 
 Numpy version:1.7.1
@@ -18,13 +19,15 @@ ss.select output:
 [ 0  1  2  0  0  0 36 49 64 81]
 
 ss.select time is: 
-0.00465703010559
+0.00236010551453
 
 np.select output: 
 [ 0  1  2  0  0  0 36 49 64 81]
 
 numpy.select time is: 
-0.00251603126526
+0.00252604484558
+
+Matching: ss and np matched.
 
 
 Test name: test1a
@@ -37,13 +40,15 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-1.35395908356
+0.570926904678
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-2.00951981544
+1.99994802475
+
+Matching: ss and np matched.
 
 
 Test name: test1b
@@ -56,13 +61,15 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-1.92386889458
+0.453832149506
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-3.54009604454
+2.01832699776
+
+Matching: ss and np matched.
 
 
 Test name: test1c
@@ -75,13 +82,15 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-6.72405004501
+3.02462792397
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-17.2564620972
+16.2374591827
+
+Matching: ss and np matched.
 
 
 Test name: test1d
@@ -94,13 +103,15 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-13.6574349403
+3.03344893456
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-28.7878341675
+17.5852000713
+
+Matching: ss and np matched.
 
 
 Test name: test2a
@@ -113,13 +124,15 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-1.96070718765
+0.898550033569
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-2.02650904655
+1.99836301804
+
+Matching: ss and np matched.
 
 
 Test name: test2b
@@ -132,13 +145,15 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-2.79668188095
+0.823184013367
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-2.22040700912
+2.03614592552
+
+Matching: ss and np matched.
 
 
 Test name: test2c
@@ -151,13 +166,15 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-14.0220549107
+5.99375319481
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-17.2801048756
+16.2316129208
+
+Matching: ss and np matched.
 
 
 Test name: test2d
@@ -170,13 +187,15 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-34.7718720436
+6.67919492722
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-20.561207056
+17.8270070553
+
+Matching: ss and np matched.
 
 
 Test name: bug1
@@ -189,10 +208,12 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00232815742493
+0.00119686126709
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
+
+Matching: WARNING! ss and np didn't match. This is normal for bug cases.
 
 
 Test name: bug2
@@ -205,10 +226,12 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00243902206421
+0.00125789642334
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
+
+Matching: WARNING! ss and np didn't match. This is normal for bug cases.
 
 
 Test name: bug3
@@ -221,13 +244,15 @@ ss.select output:
 []
 
 ss.select time is: 
-4.79221343994e-05
+4.81605529785e-05
 
 np.select output: 
 0
 
 numpy.select time is: 
-0.000169992446899
+0.000167846679688
+
+Matching: WARNING! ss and np didn't match. This is normal for bug cases.
 
 
 Test name: bug4
@@ -240,8 +265,14 @@ ss.select output:
 [0 1 2 0]
 
 ss.select time is: 
-52.2690601349
+25.5437982082
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
-<PRE>
+
+Matching: WARNING! ss and np didn't match. This is normal for bug cases.
+
+Number of non-matching tests:  4
+Check this matches the number of bug cases. (4)
+Thanks for checking the test output :)
+</PRE>

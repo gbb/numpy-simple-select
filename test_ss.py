@@ -3,30 +3,22 @@ import simple_sel as ss
 import timeit
 import sys
 
-# simplesel.select test harness v1.0
-
-print
-print "Benchmarks/test output for simplesel.select"
-print
-print "Numpy version:"+str(np.version.version)
-print "Python version:"+str(sys.version)
-print
-print "Please see test_ss.py for explanations of tests"
-print
-
+# simplesel.select test harness v1.1
 
 # Not the most elegant test-harness implementation, but it will do.
-global innerloops, size, condlist, choicelist
-innerloops=0; size=0; condlist=[]; choicelist=[]
+global innerloops, size, condlist, choicelist, non_match;
+innerloops=0; size=0; condlist=[]; choicelist=[]; non_match=0;
 
 # Number of times to run tests, when taking the fastest result.
 outerloops=5
 
 def benchmark(setup_num):
-
+    
+    global non_match
     setup_num()
     setupline="import sys; import numpy as np; import simple_sel as ss; import test_ss; test_ss."+setup_num.__name__+"()"
-
+    ss_out=np.array(1); np_out = np.array(2);  # to detect non-matching output in cases with numpy bugs
+ 
     print
     print "Test name: "+setup_num.__name__
     print "innerloops = ", innerloops
@@ -38,7 +30,8 @@ def benchmark(setup_num):
     t = timeit.Timer("ss.select(test_ss.condlist, test_ss.choicelist)", setup=setupline)
     try: 
         print "ss.select output: "
-        print ss.select(condlist, choicelist)
+        ss_out = ss.select(condlist, choicelist)
+        print ss_out
         print
         print "ss.select time is: "
         print min(t.repeat(outerloops,innerloops))
@@ -51,7 +44,8 @@ def benchmark(setup_num):
     t = timeit.Timer("np.select(test_ss.condlist, test_ss.choicelist)", setup=setupline)
     try: 
         print "np.select output: "
-        print np.select(condlist, choicelist)
+        np_out = np.select(condlist, choicelist)
+        print np_out
         print
         print "numpy.select time is: "
         print min(t.repeat(outerloops,innerloops))
@@ -60,7 +54,12 @@ def benchmark(setup_num):
         t.print_exc();
         print e
     print
-
+    if np.array_equal(ss_out,np_out):
+        print "Matching: ss and np matched."
+    else:
+        print "Matching: WARNING! ss and np didn't match. This is normal for bug cases."
+        non_match=non_match+1;
+    print
 
 ## Tests below
 
@@ -210,6 +209,16 @@ def bug4():
 
 if __name__ == "__main__": 
 
+    print
+    print "<PRE>"
+    print "Benchmarks/test output for simplesel.select"
+    print
+    print "Numpy version:"+str(np.version.version)
+    print "Python version:"+str(sys.version)
+    print
+    print "Please see test_ss.py for explanations of tests"
+    print
+
     benchmark(example1)
 
     benchmark(test1a)
@@ -227,3 +236,9 @@ if __name__ == "__main__":
     benchmark(bug3)
     benchmark(bug4)
 
+    print "Number of non-matching tests: ", non_match
+    print "Check this matches the number of bug cases. (4)"
+
+    print "Thanks for checking the test output :)"
+
+    print "</PRE>"

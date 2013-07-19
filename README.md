@@ -1,7 +1,11 @@
 numpy-simple-select
 ===================
 
-This is a drop-in replacement for the 'select' function in numpy. It has been reimplemented to fix long-standing bugs, improve speed in a common use case and improve internal documentation. It does not support advanced broadcasting, but many people may not require that for their own use of select(). 
+This is a drop-in replacement for the 'select' function in numpy. It has 
+been reimplemented to fix long-standing bugs, improve speed 
+substantially in all use cases, and improve internal documentation. It 
+now supports broadcasting. It also performs some extra validation of 
+input.
 
 It is a follow-up to my posts in the numpy repository:
 
@@ -9,9 +13,32 @@ https://github.com/numpy/numpy/issues/3259
 
 https://github.com/numpy/numpy/issues/3254
 
-I have also included a test harness which demonstrates the faults and allows a performance comparison.
+I have also included a test harness which demonstrates the faults in the 
+original numpy.select and allows a performance comparison.
 
-Pros:
+Version 2.0
+----
+
+V2.0 Pros:
+
+- Refactored and simplified the code, added full broadcasting. 
+- Execution with scalar choicelists is around 5x faster than np.select
+- Non-scalar & broadcast execution is around 2-3x faster than np.select
+- No new bugs detected, and known bugs in numpy.select fixed and tested.
+- Fully backwards compatible with v1.0 simplesel and numpy 1.7.1 select.
+- Test harness improved to detect regressions.
+- Processes select() with 2^23 ndarrays in around 25 seconds, 2012 hardware.
+
+Hopefully this will get added to standard numpy  :-) 
+
+V2.0 Cons:
+
+None observed so far.
+
+Version 1.0
+-----
+
+V1.0 Pros:
 
 - Fixes the bugs highlighted in 3259/3254 by removing the .choose() dependency.
 - Handles large condlist/choicelist inputs (e.g.  2^22 conditions in around 50 seconds).
@@ -21,7 +48,7 @@ Pros:
 - Test harness included.
 - Similar speed to np.select for ndarray classification with all elements the same shape.
 
-Cons:
+V1.0 Cons:
 
 - Slower speed with mixed ndarray/scalar condlists. Not sure this is a problem (why would you use True instead of default? why would you use False?). 
 - I don't think it will support broadcasting, but I don't have a suitable real-world test case to try out.
