@@ -3,7 +3,7 @@ import simple_sel as ss
 import timeit
 import sys
 
-# simplesel.select test harness v1.1
+# simplesel.select test harness v1.2
 
 # Not the most elegant test-harness implementation, but it will do.
 global innerloops, size, condlist, choicelist, non_match;
@@ -72,8 +72,7 @@ def example1():
     size = 10
     x = np.arange(size)
     condlist = [x<3, x>5]
-    choicelist = [x,x**2]
-
+    choicelist = [x, x**2]
 
 ## Speed comparison tests. 
 
@@ -158,6 +157,22 @@ def test2d():
     condlist = [x>4, y<2] * 10   
     choicelist = [x, y] * 10
 
+## VARIOUS
+
+# Scalar condlist item
+# Dear user, why on earth aren't you using the default parameter?
+# This is a really un-smart thing to do, and a low performance edge case.
+# I probably shouldn't even support it.
+# This implicitly tests condlist broadcasting too.
+
+def scalar_cond():  
+    global innerloops, size, condlist, choicelist
+    innerloops = 100
+    size = 10
+    x = np.arange(size)
+    condlist = [x<3, True]
+    choicelist = [x, x**2]
+
 
 ## BUG EXAMPLES
 
@@ -230,6 +245,8 @@ if __name__ == "__main__":
     benchmark(test2b)
     benchmark(test2c)
     benchmark(test2d)
+
+    benchmark(scalar_cond)
 
     benchmark(bug1)
     benchmark(bug2)
