@@ -19,13 +19,13 @@ ss.select output:
 [ 0  1  2  0  0  0 36 49 64 81]
 
 ss.select time is: 
-0.00236010551453
+0.00241494178772
 
 np.select output: 
 [ 0  1  2  0  0  0 36 49 64 81]
 
 numpy.select time is: 
-0.00252604484558
+0.00252509117126
 
 Matching: ss and np matched.
 
@@ -40,13 +40,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-0.570926904678
+0.570708990097
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-1.99994802475
+1.97568917274
 
 Matching: ss and np matched.
 
@@ -61,13 +61,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-0.453832149506
+0.449014902115
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-2.01832699776
+2.04051089287
 
 Matching: ss and np matched.
 
@@ -82,13 +82,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-3.02462792397
+3.14280986786
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-16.2374591827
+16.6164679527
 
 Matching: ss and np matched.
 
@@ -103,13 +103,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-3.03344893456
+3.03392696381
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-17.5852000713
+17.4547951221
 
 Matching: ss and np matched.
 
@@ -124,13 +124,13 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-0.898550033569
+0.91486287117
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-1.99836301804
+2.02632594109
 
 Matching: ss and np matched.
 
@@ -145,13 +145,13 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-0.823184013367
+0.818386077881
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-2.03614592552
+2.00318002701
 
 Matching: ss and np matched.
 
@@ -166,13 +166,13 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-5.99375319481
+5.94291210175
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-16.2316129208
+16.6462669373
 
 Matching: ss and np matched.
 
@@ -187,13 +187,34 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-6.67919492722
+6.69624686241
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-17.8270070553
+17.5204050541
+
+Matching: ss and np matched.
+
+
+Test name: scalar_cond
+innerloops =  100
+size =  10
+condlist =  [array([ True,  True,  True, False, False, False, 
+choicelist =  [array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), array([ 0,
+setupline =  import sys; import numpy as np; import simple_sel as ss; import test_ss; test_ss.scalar_cond()
+ss.select output: 
+[ 0  1  2  9 16 25 36 49 64 81]
+
+ss.select time is: 
+0.00542902946472
+
+np.select output: 
+[ 0  1  2  9 16 25 36 49 64 81]
+
+numpy.select time is: 
+0.00258088111877
 
 Matching: ss and np matched.
 
@@ -208,7 +229,7 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00119686126709
+0.00117707252502
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
@@ -226,7 +247,7 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00125789642334
+0.00124216079712
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
@@ -250,7 +271,7 @@ np.select output:
 0
 
 numpy.select time is: 
-0.000167846679688
+0.000169038772583
 
 Matching: WARNING! ss and np didn't match. This is normal for bug cases.
 
@@ -265,14 +286,6 @@ ss.select output:
 [0 1 2 0]
 
 ss.select time is: 
-25.5437982082
+24.9998121262
 
 np.select output: 
-Need between 2 and (32) array objects (inclusive).
-
-Matching: WARNING! ss and np didn't match. This is normal for bug cases.
-
-Number of non-matching tests:  4
-Check this matches the number of bug cases. (4)
-Thanks for checking the test output :)
-</PRE>
