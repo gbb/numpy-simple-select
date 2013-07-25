@@ -77,12 +77,16 @@ def select(condlist, choicelist, default=0):
         return np.array([]) 
 
     # If cond array is not an ndarray in boolean format or scalar bool, abort.
-    for index,item in enumerate(condlist):
-        if type(item) is not np.ndarray:
-            if type(item) is not bool:
-                raise ValueError('invalid entry in choice array: should be boolean ndarray')
-        else:
-            if item.dtype != 'bool':
+    deprecated_ints=False    
+    for i in range(0,len(condlist)):
+        item=np.asarray(condlist[i])
+        if item.dtype != np.bool_:
+            if np.issubdtype(item.dtype, np.integer_):
+                # A previous implementation accepted int ndarrays accidentally.
+                # Supported here deliberately, but deprecated and to be removed.
+                condlist[i]=condlist[i].astype(bool)
+                deprecated_ints=True
+            else:
                 raise ValueError('invalid entry in choice array: should be boolean ndarray')
 
     # Create dictionaries noting the sizes of the items in the lists. 
