@@ -19,13 +19,13 @@ ss.select output:
 [ 0  1  2  0  0  0 36 49 64 81]
 
 ss.select time is: 
-0.00241494178772
+0.00241208076477
 
 np.select output: 
 [ 0  1  2  0  0  0 36 49 64 81]
 
 numpy.select time is: 
-0.00252509117126
+0.00243091583252
 
 Matching: ss and np matched.
 
@@ -40,13 +40,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-0.570708990097
+0.580979824066
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-1.97568917274
+1.98146104813
 
 Matching: ss and np matched.
 
@@ -61,13 +61,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-0.449014902115
+0.455127954483
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-2.04051089287
+1.95728707314
 
 Matching: ss and np matched.
 
@@ -82,13 +82,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-3.14280986786
+3.29086303711
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-16.6164679527
+16.1764359474
 
 Matching: ss and np matched.
 
@@ -103,13 +103,13 @@ ss.select output:
 [2 2 0 ..., 1 1 1]
 
 ss.select time is: 
-3.03392696381
+3.03787589073
 
 np.select output: 
 [2 2 0 ..., 1 1 1]
 
 numpy.select time is: 
-17.4547951221
+17.5093967915
 
 Matching: ss and np matched.
 
@@ -124,13 +124,13 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-0.91486287117
+0.911911964417
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-2.02632594109
+1.96893787384
 
 Matching: ss and np matched.
 
@@ -145,13 +145,13 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-0.818386077881
+0.81896686554
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-2.00318002701
+1.98958182335
 
 Matching: ss and np matched.
 
@@ -166,13 +166,13 @@ ss.select output:
 [   0    1    0 ..., 9997 9998 9999]
 
 ss.select time is: 
-5.94291210175
+6.14482092857
 
 np.select output: 
 [   0    1    0 ..., 9997 9998 9999]
 
 numpy.select time is: 
-16.6462669373
+16.2050058842
 
 Matching: ss and np matched.
 
@@ -187,13 +187,13 @@ ss.select output:
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 ss.select time is: 
-6.69624686241
+6.68927383423
 
 np.select output: 
 [      0       1       0 ..., 9999997 9999998 9999999]
 
 numpy.select time is: 
-17.5204050541
+17.3452601433
 
 Matching: ss and np matched.
 
@@ -208,13 +208,34 @@ ss.select output:
 [ 0  1  2  9 16 25 36 49 64 81]
 
 ss.select time is: 
-0.00542902946472
+0.00532102584839
 
 np.select output: 
 [ 0  1  2  9 16 25 36 49 64 81]
 
 numpy.select time is: 
-0.00258088111877
+0.00243902206421
+
+Matching: ss and np matched.
+
+
+Test name: int_cond
+innerloops =  100
+size =  10
+condlist =  [array([0, 1, 0]), array([1, 1, 0])]
+choicelist =  [5, 6]
+setupline =  import sys; import numpy as np; import simple_sel as ss; import test_ss; test_ss.int_cond()
+ss.select output: 
+[6 5 0]
+
+ss.select time is: 
+0.00211405754089
+
+np.select output: 
+[6 5 0]
+
+numpy.select time is: 
+0.00222611427307
 
 Matching: ss and np matched.
 
@@ -229,7 +250,7 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00117707252502
+0.00135588645935
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
@@ -247,7 +268,7 @@ ss.select output:
 [0 0 0 0 4 5 6 7 8 9]
 
 ss.select time is: 
-0.00124216079712
+0.0014271736145
 
 np.select output: 
 Need between 2 and (32) array objects (inclusive).
@@ -265,13 +286,13 @@ ss.select output:
 []
 
 ss.select time is: 
-4.81605529785e-05
+4.88758087158e-05
 
 np.select output: 
 0
 
 numpy.select time is: 
-0.000169038772583
+0.000158786773682
 
 Matching: WARNING! ss and np didn't match. This is normal for bug cases.
 
@@ -286,6 +307,14 @@ ss.select output:
 [0 1 2 0]
 
 ss.select time is: 
-24.9998121262
+30.2580089569
 
 np.select output: 
+Need between 2 and (32) array objects (inclusive).
+
+Matching: WARNING! ss and np didn't match. This is normal for bug cases.
+
+Number of non-matching tests:  4
+Check this matches the number of bug cases. (4)
+Thanks for checking the test output :)
+</PRE>
