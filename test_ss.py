@@ -173,6 +173,15 @@ def scalar_cond():
     condlist = [x<3, True]
     choicelist = [x, x**2]
 
+# Int ndarray inputs; deprecated. 
+
+def int_cond():
+    global innerloops, size, condlist, choicelist
+    innerloops = 100
+    size = 10
+    condlist = [np.array([0,1,0]), np.array([1,1,0])]
+    choicelist = [5,6]
+
 
 ## BUG EXAMPLES
 
@@ -247,6 +256,7 @@ if __name__ == "__main__":
     benchmark(test2d)
 
     benchmark(scalar_cond)
+    benchmark(int_cond)
 
     benchmark(bug1)
     benchmark(bug2)

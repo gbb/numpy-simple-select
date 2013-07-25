@@ -81,7 +81,7 @@ def select(condlist, choicelist, default=0):
     for i in range(0,len(condlist)):
         item=np.asarray(condlist[i])
         if item.dtype != np.bool_:
-            if np.issubdtype(item.dtype, np.integer_):
+            if np.issubdtype(item.dtype, np.int_):
                 # A previous implementation accepted int ndarrays accidentally.
                 # Supported here deliberately, but deprecated and to be removed.
                 condlist[i]=condlist[i].astype(bool)
